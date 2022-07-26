@@ -1,0 +1,53 @@
+# Cálculo da Área de um círculo
+from datetime import datetime
+valor = input('Digite um valor para cálculo da área: ')
+print('=' * 80)
+
+
+def validate_input(value):
+    try:
+        value = float(value)
+        return True
+    except:
+        return False
+
+
+def calcArea(radius):
+    pi = 3.1415927
+    radius = float(radius)
+    area = pi * radius ** 2
+    return area
+
+
+for radius in valor:
+    try:
+        area = calcArea(radius)
+    except ValueError:
+        print(f'\033[1;31mO valor inserido não é do tipo numérico.\033[m')
+        print('=' * 80)
+        while not validate_input(radius):
+            radius = input('Por favor insira um valor númerico: ')
+            print('=' * 80)
+        area = calcArea(radius)
+    except Exception as e:
+        area = None
+        erro_de_tipo = type(e).__name__
+        print(f'A área não pôde ser calculada com o valor "\033[1;31m{valor}\033[m".')
+        print(f'Tipo de erro: "\033[1;31m{erro_de_tipo}\033[m" \nMensagem de erro: "\033[1;31m{e}\033[m".')
+
+    else:
+        print(f'O cálculo da área foi executado perfeitamente para o valor {radius}.')
+        print('=' * 80)
+
+    finally:
+        agora = datetime.now()
+        print(f'Cálculo para radius de "{radius}" é igual a uma de área de {area}.\n'
+              f'Executado em {agora.day}/{agora.month}/{agora.year} '
+              f'às {agora.hour}:{agora.minute}:{agora.second}.')
+        print('=' * 80)
+
+
+
+
+
+print('Exercício modificado por Hilário Grossi de Oliveira')
