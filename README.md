@@ -1,1 +1,2 @@
-# Exercicio_Tratativa_Erros_DB1_UNI_421
+# Estudo Tratativa de Erros em Python da DB1 Start UNI_421.
+## Exceções do Python.
